@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   operation_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/06 14:17:29 by trgascoi          #+#    #+#             */
+/*   Updated: 2026/01/06 14:22:02 by trgascoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation_1.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:10:09 by qcorsius          #+#    #+#             */
@@ -41,6 +53,8 @@ int push(t_stack **from, t_stack **to)
     return (1);
 }
 
+/*
+#include "ft_printf.h"
 int main(void)
 {
     t_stack *stack = new_stack(1);
@@ -49,8 +63,8 @@ int main(void)
     swap(&stack);
     while (stack)
     {
-        printf("%d\n", stack->value);
+        ft_printf("%d\n", stack->value);
         stack = stack->next;
     }
 }
-    
+*/
