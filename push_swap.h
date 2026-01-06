@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:16:27 by qcorsius          #+#    #+#             */
-/*   Updated: 2026/01/06 09:34:47 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 10:56:17 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+t_stack	*new_stack(int value);
+void	push_stack(int value, t_stack **stack);
+int		pop_stack(t_stack **stack);
 #endif
