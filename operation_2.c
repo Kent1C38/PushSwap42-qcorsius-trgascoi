@@ -6,7 +6,7 @@
 /*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:48:21 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/06 14:32:31 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:42:58 by trgascoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	rotate(t_stack **stack)
 	return (1);
 }
 
-int rev_rotate(t_stack **stack)
+int	rev_rotate(t_stack **stack)
 {
 	t_stack	*tmp;
 

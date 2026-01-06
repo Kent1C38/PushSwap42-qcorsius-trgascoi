@@ -6,7 +6,7 @@
 /*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:17:29 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/06 14:22:02 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:42:34 by trgascoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,32 @@
 #include "push_swap.h"
 #include "stddef.h"
 
-void    swap(t_stack **stack)
+void	swap(t_stack **stack)
 {
-    t_stack *next_stack;
+	t_stack	*next_stack;
 
-    next_stack = (*stack)->next;
-    (*stack)->next = next_stack->next;
-    (*stack)->previous = next_stack;
-    next_stack->previous = NULL;
-    next_stack->next = (*stack);
-    (*stack) = next_stack;
+	next_stack = (*stack)->next;
+	(*stack)->next = next_stack->next;
+	(*stack)->previous = next_stack;
+	next_stack->previous = NULL;
+	next_stack->next = (*stack);
+	(*stack) = next_stack;
 }
 
-void    swap_both(t_stack **a, t_stack **b)
+void	swap_both(t_stack **a, t_stack **b)
 {
-    swap(a);
-    swap(b);
+	swap(a);
+	swap(b);
 }
 
-int push(t_stack **from, t_stack **to)
+int	push(t_stack **from, t_stack **to)
 {
-    int temp_val;
-    
-    temp_val = pop_stack(from);
-    if (!push_stack(temp_val, to))
-        return (0);
-    return (1);
+	int	temp_val;
+
+	temp_val = pop_stack(from);
+	if (!push_stack(temp_val, to))
+		return (0);
+	return (1);
 }
 
 /*
