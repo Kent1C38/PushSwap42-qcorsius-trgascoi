@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/06 10:56:48 by trgascoi          #+#    #+#             */
+/*   Updated: 2026/01/06 10:57:02 by trgascoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:16:27 by qcorsius          #+#    #+#             */
@@ -23,4 +35,5 @@ typedef struct s_stack
 t_stack	*new_stack(int value);
 void	push_stack(int value, t_stack **stack);
 int		pop_stack(t_stack **stack);
+
 #endif

@@ -2,10 +2,14 @@ NAME      = push_swap
 CC        = cc
 CFLAGS    = -Wall -Wextra -Werror -MMD
 OBJ_DIR   = .objects
-SRC_DIR   = src
-INC_DIR   = includes
+SRC_DIR   = .
+INC_DIR   = .
 
-SRCS      = ...
+SRCS      = ft_printf.c \
+			ft_printf_utils.c \
+			stack_utils.c \
+			operation_1.c \
+			operation_2.c
 OBJS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 DEPS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.d)))
 

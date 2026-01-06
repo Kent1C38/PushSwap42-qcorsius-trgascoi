@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/06 10:12:59 by trgascoi          #+#    #+#             */
+/*   Updated: 2026/01/06 14:13:41 by trgascoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:47:01 by qcorsius          #+#    #+#             */
@@ -13,7 +25,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdint.h>
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	pointer_handling(void *arg, int *total)
 {
