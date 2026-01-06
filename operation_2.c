@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   operation_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/06 16:26:48 by trgascoi          #+#    #+#             */
+/*   Updated: 2026/01/06 16:57:24 by trgascoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation_2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:48:21 by trgascoi          #+#    #+#             */
@@ -52,12 +64,14 @@ int	rev_rotate(t_identified_stack *id_stack)
 
 void	rotate_both(t_identified_stack *a, t_identified_stack *b)
 {
-	char id_a = a->id;
-	char id_b = b->id;
+	char	id_a;
+	char	id_b;
 
+	id_a = a->id;
+	id_b = b->id;
 	a->id = 0;
 	b->id = 0;
-	rotate(a);	
+	rotate(a);
 	rotate(b);
 	a->id = id_a;
 	b->id = id_b;
@@ -66,22 +80,25 @@ void	rotate_both(t_identified_stack *a, t_identified_stack *b)
 
 void	rev_rotate_both(t_identified_stack *a, t_identified_stack *b)
 {
-	char id_a = a->id;
-	char id_b = b->id;
+	char	id_a;
+	char	id_b;
 
+	id_a = a->id;
+	id_b = b->id;
 	a->id = 0;
 	b->id = 0;
-	rev_rotate(a);	
+	rev_rotate(a);
 	rev_rotate(b);
 	a->id = id_a;
 	b->id = id_b;
 	ft_printf("rrr\n");
 }
 
-void display_stack(t_identified_stack *id_stack)
+
+void	display_stack(t_identified_stack *id_stack)
 {
-	t_stack *tmp;
-	
+	t_stack	*tmp;
+
 	tmp = id_stack->content;
 	while (tmp)
 	{
