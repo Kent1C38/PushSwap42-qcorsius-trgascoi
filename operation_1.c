@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:17:29 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/06 15:07:54 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 16:19:12 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,39 @@
 #include "stddef.h"
 #include "ft_printf.h"
 
-void	swap(t_stack **stack, char c)
+void	swap(t_identified_stack id_stack)
 {
+    t_stack **stack;
 	t_stack	*next_stack;
 
+    stack = &(id_stack.content);
 	next_stack = (*stack)->next;
 	(*stack)->next = next_stack->next;
 	(*stack)->previous = next_stack;
 	next_stack->previous = NULL;
 	next_stack->next = (*stack);
 	(*stack) = next_stack;
-    if (c != 0)
-        ft_printf("s%c\n", c);
+    if (id_stack.id != 0)
+        ft_printf("s%c\n", id_stack.id);
 }
 
-void	swap_both(t_stack **a, t_stack **b)
+void	swap_both(t_identified_stack a, t_identified_stack b)
 {
-	swap(a, 0);
-	swap(b, 0);
+    a.id = 0;
+    b.id = 0;
+    swap(a);	
+    swap(b);
     ft_printf("ss\n");
 }
 
-int	push(t_stack **from, t_stack **to, char c)
+int	push(t_identified_stack from, t_identified_stack to)
 {
 	int	temp_val;
 
-	temp_val = pop_stack(from);
-	if (!push_stack(temp_val, to))
+	temp_val = pop_stack(&(from.content));
+	if (!push_stack(temp_val, &(to.content)))
 		return (0);
-    ft_printf("p%c\n", c);
+    ft_printf("p%c\n", from.id);
 	return (1);
 }
 

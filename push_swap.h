@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:56:48 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/06 15:13:52 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 16:19:01 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,18 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+typedef struct s_identified_stack
+{
+	char	id;
+	t_stack *content;
+}	t_identified_stack;
+
 t_stack	*new_stack(int value);
 int		push_stack(int value, t_stack **stack);
 int		pop_stack(t_stack **stack);
-void	swap(t_stack **stack, char c);
-void	swap_both(t_stack **a, t_stack **b);
-int	push(t_stack **from, t_stack **to, char c);
+
+void	swap(t_identified_stack id_stack);
+int		push(t_identified_stack from, t_identified_stack to); 
+void	swap_both(t_identified_stack a, t_identified_stack b);
 
 #endif
