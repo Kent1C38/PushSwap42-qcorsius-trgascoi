@@ -14,63 +14,75 @@
 #include "push_swap.h"
 #include "ft_printf.h"
 
-int	rotate(t_identified_stack id_stack)
+int	rotate(t_identified_stack *id_stack)
 {
 	int		value_to_move;
-	t_stack	*stack;
 	t_stack	*tmp;
 
-	stack = id_stack.content;
-	tmp = stack->next;
-	value_to_move = pop_stack(&stack);
+	if (!id_stack->content || !id_stack->content->next)
+		return (0);
+	value_to_move = pop_stack(&(id_stack->content));
+	tmp = id_stack->content;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = new_stack(value_to_move);
 	if (tmp->next == NULL)
 		return (0);
 	tmp->next->previous = tmp;
-	if (id_stack.id != 0)
-		ft_printf("r%c\n", id_stack.id);
+	if (id_stack->id != 0)
+		ft_printf("r%c\n", id_stack->id);
 	return (1);
 }
 
-int	rev_rotate(t_identified_stack id_stack)
+int	rev_rotate(t_identified_stack *id_stack)
 {
 	t_stack	*stack;
 	t_stack	*tmp;
 
-	stack = id_stack.content;
+	stack = id_stack->content;
+	if (!stack || !stack->next)
+		return (0);
 	tmp = stack;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
-	if (id_stack.id != 0)
-		ft_printf("rr%c\n", id_stack.id);
-	return (push_stack(pop_stack(&tmp), &stack));
+	if (id_stack->id != 0)
+		ft_printf("rr%c\n", id_stack->id);
+	return (push_stack(pop_stack(&tmp), &(id_stack->content)));
 }
 
-void	rotate_both(t_identified_stack a, t_identified_stack b)
+void	rotate_both(t_identified_stack *a, t_identified_stack *b)
 {
-    a.id = 0;
-    b.id = 0;
-    rotate(a);	
-    rotate(b);
-    ft_printf("rr\n");
+	char id_a = a->id;
+	char id_b = b->id;
+
+	a->id = 0;
+	b->id = 0;
+	rotate(a);	
+	rotate(b);
+	a->id = id_a;
+	b->id = id_b;
+	ft_printf("rr\n");
 }
 
-void	rev_rotate_both(t_identified_stack a, t_identified_stack b)
+void	rev_rotate_both(t_identified_stack *a, t_identified_stack *b)
 {
-    a.id = 0;
-    b.id = 0;
-    rev_rotate(a);	
-    rev_rotate(b);
-    ft_printf("rrr\n");
+	char id_a = a->id;
+	char id_b = b->id;
+
+	a->id = 0;
+	b->id = 0;
+	rev_rotate(a);	
+	rev_rotate(b);
+	a->id = id_a;
+	b->id = id_b;
+	ft_printf("rrr\n");
 }
 
-void display_stack(t_identified_stack id_stack)
+void display_stack(t_identified_stack *id_stack)
 {
 	t_stack *tmp;
 	
-	tmp = id_stack.content;
+	tmp = id_stack->content;
 	while (tmp)
 	{
 		ft_printf("%d\n", tmp->value);
@@ -94,9 +106,9 @@ int	main(void)
 	push_stack(12, &(stack_b.content));
 	push_stack(13, &(stack_b.content));
 	
-	push(stack_b, stack_a);
+	push(&stack_b, &stack_a);
 	
-	display_stack(stack_a);
+	display_stack(&stack_a);
 	ft_printf("\n");
-	display_stack(stack_b);
+	display_stack(&stack_b);
 }
