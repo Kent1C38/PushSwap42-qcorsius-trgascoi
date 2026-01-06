@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:27:19 by qcorsius          #+#    #+#             */
-/*   Updated: 2026/01/06 10:00:17 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 10:04:29 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ t_stack	*new_stack(int value)
 	return (new);
 }
 
-void	clear_stack_value(t_stack *stack)
-{
-	stack->next = NULL;
-	stack->previous = NULL;
-}
 
 void	push_stack(int value, t_stack *stack)
 {
