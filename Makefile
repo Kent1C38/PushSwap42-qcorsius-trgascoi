@@ -1,6 +1,6 @@
 NAME      = push_swap
 CC        = cc
-CFLAGS    = -Wall -Wextra -Werror -MMD
+CFLAGS    = -Wall -Wextra -Werror -MMD -g3
 OBJ_DIR   = .objects
 SRC_DIR   = .
 INC_DIR   = .

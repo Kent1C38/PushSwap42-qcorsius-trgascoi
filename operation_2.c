@@ -6,7 +6,7 @@
 /*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:48:21 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/06 14:24:50 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:32:31 by trgascoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ int	rotate(t_stack **stack)
 	return (1);
 }
 
+int rev_rotate(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	return (push_stack(pop_stack(&tmp), stack));
+}
 
 #include "ft_printf.h"
 int	main(void)
@@ -39,7 +48,7 @@ int	main(void)
 	push_stack(2, &stack);
 	push_stack(3, &stack);
 	push_stack(4, &stack);
-	rotate(&stack);
+	rev_rotate(&stack);
 	while (stack != NULL)
 	{
 		ft_printf("%d\n", stack->value);

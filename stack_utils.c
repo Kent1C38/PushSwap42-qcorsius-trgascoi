@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/06 14:17:29 by trgascoi          #+#    #+#             */
+/*   Updated: 2026/01/06 14:40:07 by trgascoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:27:19 by qcorsius          #+#    #+#             */
@@ -44,8 +56,13 @@ int	pop_stack(t_stack **stack)
 
 	value = (*stack)->value;
 	new_stack = (*stack)->next;
-	(*stack)->next->previous = NULL;
-	(*stack)->next = NULL;
+	if ((*stack)->next == NULL)
+		(*stack)->previous->next = NULL;
+	else
+	{
+		(*stack)->next->previous = NULL;
+		(*stack)->next = NULL;
+	}
 	free(*stack);
 	*stack = new_stack;
 	return (value);
