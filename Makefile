@@ -5,9 +5,7 @@ OBJ_DIR   = .objects
 SRC_DIR   = .
 INC_DIR   = .
 
-SRCS      = ft_printf.c \
-			ft_printf_utils.c \
-			stack_utils.c \
+SRCS      = stack_utils.c \
 			operation_1.c \
 			operation_2.c \
 			sort_utils.c \
@@ -17,12 +15,15 @@ DEPS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.d)))
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): libft/libft.a $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) libft/libft.a -o $(NAME)
+
+libft/libft.a:
+	make -C libft
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INC_DIR) -Ilibft/includes -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)

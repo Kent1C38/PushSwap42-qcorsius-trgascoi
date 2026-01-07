@@ -18,13 +18,13 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:26:48 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 09:52:13 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 11:04:04 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
-#include "ft_printf.h"
+#include "libft/includes/ft_printf.h"
 
 int	rotate(t_identified_stack *id_stack)
 {

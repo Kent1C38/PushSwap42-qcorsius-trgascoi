@@ -6,13 +6,13 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:26:48 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 09:48:44 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 11:04:13 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stddef.h"
-#include "ft_printf.h"
+#include "libft/includes/ft_printf.h"
 
 void	swap(t_identified_stack *id_stack)
 {
