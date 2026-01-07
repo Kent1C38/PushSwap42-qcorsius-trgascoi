@@ -6,7 +6,7 @@
 /*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 12:37:28 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 14:51:41 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:27:45 by trgascoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,39 @@ int	selection_sort(t_identified_stack *stack_a, t_identified_stack *stack_b)
 	return (1);
 }
 
-#include "ft_printf.h"
+#include "libft/includes/ft_printf.h"
+#include "range_sort.h"
+#include <time.h>
+int is_unique(t_stack *stack, int val)
+{
+	while (stack)
+	{
+		if (stack->value == val)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+void fill_random_stack(t_identified_stack *stack_a, int count)
+{
+	int random_val;
+	int i = 0;
+
+	srand(time(NULL));
+	stack_a->content = NULL;
+	while (i < count)
+	{
+		random_val = rand() % 10000; // Adjust range as needed
+		if (is_unique(stack_a->content, random_val))
+		{
+			if (stack_a->content == NULL)
+				stack_a->content = new_stack(random_val);
+			else
+				push_stack(random_val, &(stack_a->content));
+			i++;
+		}
+	}
+}
 void	display_stack(t_identified_stack *id_stack)
 {
 	t_stack	*tmp;
@@ -53,15 +85,12 @@ int	main(void)
 	t_identified_stack	stack_b;
 
 	stack_a.id = 'a';
-	stack_a.content = new_stack(1);
-	push_stack(2, &(stack_a.content));
-	push_stack(3, &(stack_a.content));
-	push_stack(4, &(stack_a.content));
+	fill_random_stack(&stack_a, 500);
 
 	stack_b.id = 'b';
 	stack_b.content = NULL;
 
 	// display_stack(&stack_a);
-	selection_sort(&stack_a, &stack_b);
+	range_sort(&stack_a, &stack_b);
 	// display_stack(&stack_a);
 }
