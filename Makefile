@@ -10,6 +10,7 @@ SRCS      = ft_printf.c \
 			stack_utils.c \
 			operation_1.c \
 			operation_2.c \
+			sort_utils.c \
 			selection_sort.c
 OBJS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 DEPS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.d)))

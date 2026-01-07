@@ -6,48 +6,24 @@
 /*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 12:37:28 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 13:16:55 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:35:23 by trgascoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
-
-int	min_value(t_identified_stack *id_stack)
-{
-	t_stack	*stack;
-	int		min_found;
-
-	stack = id_stack->content;
-	if (stack == NULL)
-		return (0);
-	min_found = stack->value;
-	while (stack != NULL)
-	{
-		if (stack->value < min_found)
-			min_found = stack->value;
-		stack = stack->next;
-	}
-	return (min_found);
-}
+#include "sort_utils.h"
 
 int	selection_sort(t_identified_stack *stack_a, t_identified_stack *stack_b)
 {
-	t_stack	*stack;
 	int		min;
 
 	if (stack_a->content == NULL)
 		return (0);
 	while (stack_a->content != NULL)
 	{
-		stack = stack_a->content;
 		min = min_value(stack_a);
-		while (stack->value != min)
-		{
-			if (!rotate(stack_a))
-				return (0);
-			stack = stack_a->content;
-		}
+		move_n_to_top(stack_a, min);
 		if (!push(stack_a, stack_b))
 			return (0);
 	}
