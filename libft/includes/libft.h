@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 09:24:57 by qcorsius          #+#    #+#             */
-/*   Updated: 2025/11/17 12:01:12 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 17:10:01 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		ft_isascii(char c);
 int		ft_isprint(char c);
 int		ft_lstsize(t_list *lst);
 int		ft_atoi(const char *nptr);
+int		ft_string_check(char *string, int (*f)(char));
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_itoa(int n);

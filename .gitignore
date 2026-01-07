@@ -3,3 +3,5 @@
 .venv
 .objects
 push_swap
+*/.git
+*/.build
