@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:27:19 by qcorsius          #+#    #+#             */
-/*   Updated: 2026/01/07 15:57:17 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:40:40 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ int	push_stack(int value, t_stack **stack)
 		*stack = modified;
 	}
 	else if (stack != NULL)
-	{
 		*stack = modified;
-	}
 	else
 		return (0);
 	return (1);

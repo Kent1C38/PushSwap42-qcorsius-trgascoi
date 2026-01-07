@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 12:37:28 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 15:27:45 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:58:54 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,29 +68,29 @@ void fill_random_stack(t_identified_stack *stack_a, int count)
 		}
 	}
 }
-void	display_stack(t_identified_stack *id_stack)
-{
-	t_stack	*tmp;
+// void	display_stack(t_identified_stack *id_stack)
+// {
+// 	t_stack	*tmp;
 
-	tmp = id_stack->content;
-	while (tmp)
-	{
-		ft_printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-}
-int	main(void)
-{
-	t_identified_stack	stack_a;
-	t_identified_stack	stack_b;
+// 	tmp = id_stack->content;
+// 	while (tmp)
+// 	{
+// 		ft_printf("%d\n", tmp->value);
+// 		tmp = tmp->next;
+// 	}
+// }
+// // int	main(void)
+// // {
+// // 	t_identified_stack	stack_a;
+// // 	t_identified_stack	stack_b;
 
-	stack_a.id = 'a';
-	fill_random_stack(&stack_a, 500);
+// // 	stack_a.id = 'a';
+// // 	fill_random_stack(&stack_a, 500);
 
-	stack_b.id = 'b';
-	stack_b.content = NULL;
+// // 	stack_b.id = 'b';
+// // 	stack_b.content = NULL;
 
-	// display_stack(&stack_a);
-	range_sort(&stack_a, &stack_b);
-	// display_stack(&stack_a);
-}
+// // 	// display_stack(&stack_a);
+// // 	range_sort(&stack_a, &stack_b);
+// // 	// display_stack(&stack_a);
+// // }
