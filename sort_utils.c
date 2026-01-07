@@ -76,12 +76,18 @@ void	move_n_to_top(t_identified_stack *stack_a, int n)
 	distance_from_bottom = size - position;
 	if (distance_from_top <= distance_from_bottom)
 	{
-		while (stack_a->content->value != n)
-			rotate(stack_a);
+		while (stack_a->content && stack_a->content->value != n)
+		{
+			if (!rotate(stack_a))
+				break ;
+		}
 	}
 	else
 	{
-		while (stack_a->content->value != n)
-			rev_rotate(stack_a);
+		while (stack_a->content && stack_a->content->value != n)
+		{
+			if (!rev_rotate(stack_a))
+				break ;
+		}
 	}
 }

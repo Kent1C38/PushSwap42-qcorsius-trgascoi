@@ -6,7 +6,7 @@
 /*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 12:37:28 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 14:35:23 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:51:41 by trgascoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,15 @@ int	main(void)
 	t_identified_stack	stack_b;
 
 	stack_a.id = 'a';
-	stack_a.content = new_stack(5);
-	push_stack(7, &(stack_a.content));
+	stack_a.content = new_stack(1);
+	push_stack(2, &(stack_a.content));
 	push_stack(3, &(stack_a.content));
-	push_stack(6, &(stack_a.content));
+	push_stack(4, &(stack_a.content));
 
 	stack_b.id = 'b';
 	stack_b.content = NULL;
 
+	// display_stack(&stack_a);
 	selection_sort(&stack_a, &stack_b);
-	display_stack(&stack_a);
+	// display_stack(&stack_a);
 }

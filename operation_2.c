@@ -50,6 +50,7 @@ int	rev_rotate(t_identified_stack *id_stack)
 {
 	t_stack	*stack;
 	t_stack	*tmp;
+	int		value;
 
 	stack = id_stack->content;
 	if (!stack || !stack->next)
@@ -57,9 +58,13 @@ int	rev_rotate(t_identified_stack *id_stack)
 	tmp = stack;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
+	value = tmp->value;
+	if (tmp->previous)
+		tmp->previous->next = NULL;
+	free(tmp);
 	if (id_stack->id != 0)
 		ft_printf("rr%c\n", id_stack->id);
-	return (push_stack(pop_stack(&tmp), &(id_stack->content)));
+	return (push_stack(value, &(id_stack->content)));
 }
 
 void	rotate_both(t_identified_stack *a, t_identified_stack *b)
