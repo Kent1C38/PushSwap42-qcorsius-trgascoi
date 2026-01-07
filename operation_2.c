@@ -3,22 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 16:26:48 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/06 16:57:24 by trgascoi         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   operation_2.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 10:48:21 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/06 16:19:25 by qcorsius         ###   ########lyon.fr   */
+/*   Created: 2026/01/06 16:26:48 by trgascoi          #+#    #+#             */
+/*   Updated: 2026/01/07 09:52:13 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +82,6 @@ void	rev_rotate_both(t_identified_stack *a, t_identified_stack *b)
 	ft_printf("rrr\n");
 }
 
-
 void	display_stack(t_identified_stack *id_stack)
 {
 	t_stack	*tmp;
@@ -106,6 +93,7 @@ void	display_stack(t_identified_stack *id_stack)
 		tmp = tmp->next;
 	}
 }
+
 int	main(void)
 {
 	t_identified_stack	stack_a;
