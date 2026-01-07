@@ -20,9 +20,13 @@ void	swap(t_identified_stack *id_stack)
 	t_stack	*next_stack;
 
 	stack = &(id_stack->content);
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
 	next_stack = (*stack)->next;
 	(*stack)->next = next_stack->next;
 	(*stack)->previous = next_stack;
+	if (next_stack->next != NULL)
+		next_stack->next->previous = (*stack);
 	next_stack->previous = NULL;
 	next_stack->next = (*stack);
 	(*stack) = next_stack;
@@ -50,6 +54,8 @@ int	push(t_identified_stack *from, t_identified_stack *to)
 {
 	int	temp_val;
 
+	if (from->content == NULL)
+		return (0);
 	temp_val = pop_stack(&(from->content));
 	if (!push_stack(temp_val, &(to->content)))
 		return (0);

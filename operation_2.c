@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   operation_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/07 12:32:22 by trgascoi          #+#    #+#             */
+/*   Updated: 2026/01/07 13:07:03 by trgascoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation_2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:26:48 by trgascoi          #+#    #+#             */
@@ -82,6 +94,7 @@ void	rev_rotate_both(t_identified_stack *a, t_identified_stack *b)
 	ft_printf("rrr\n");
 }
 
+/*
 void	display_stack(t_identified_stack *id_stack)
 {
 	t_stack	*tmp;
@@ -93,7 +106,6 @@ void	display_stack(t_identified_stack *id_stack)
 		tmp = tmp->next;
 	}
 }
-
 int	main(void)
 {
 	t_identified_stack	stack_a;
@@ -117,3 +129,4 @@ int	main(void)
 	ft_printf("\n");
 	display_stack(&stack_b);
 }
+*/

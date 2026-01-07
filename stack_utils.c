@@ -32,7 +32,8 @@ int	push_stack(int value, t_stack **stack)
 	if (!modified)
 		return (0);
 	modified->next = *stack;
-	(*stack)->previous = modified;
+	if (*stack != NULL)
+		(*stack)->previous = modified;
 	*stack = modified;
 	return (1);
 }
@@ -42,15 +43,12 @@ int	pop_stack(t_stack **stack)
 	int		value;
 	t_stack	*new_stack;
 
+	if (*stack == NULL)
+		return (0);
 	value = (*stack)->value;
 	new_stack = (*stack)->next;
-	if ((*stack)->next == NULL)
-		(*stack)->previous->next = NULL;
-	else
-	{
-		(*stack)->next->previous = NULL;
-		(*stack)->next = NULL;
-	}
+	if (new_stack != NULL)
+		new_stack->previous = NULL;
 	free(*stack);
 	*stack = new_stack;
 	return (value);
