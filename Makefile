@@ -11,8 +11,6 @@ SRCS      = stack_utils.c \
 			sort_utils.c \
 			selection_sort.c \
 			range_sort.c
-			selection_sort.c \
-			main.c
 OBJS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 DEPS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.d)))
 
