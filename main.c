@@ -67,31 +67,32 @@ int	main(int argc, char **argv)
 {
 	t_identified_stack	stack_a;
 	t_identified_stack	stack_b;
+	t_options			opt;
 	int					start_index;
 
 	stack_a.id = 'a';
 	stack_a.content = NULL;
 	stack_b.id = 'b';
 	stack_b.content = NULL;
-
-	if (argc <= 1)
+	if (argc < 1)
 		return (0);
-	start_index = 1;
-	if (argc >= 2 && argv[1][0] == '-' && argv[1][1] == '-')
-		start_index = 2;
+	if (!parse_options(argc, argv, &opt, &start_index)) {
+		ft_printf("Error: invalid options\n");
+		return (1);
+	}
 	if (argc > start_index)
-	{
-		if ((argv[start_index][0] == '-' && ft_string_check(&argv[start_index][1], &ft_isdigit))
-			|| ft_string_check(argv[start_index], &ft_isdigit))
-			generate_stack_from_entry(&argv[start_index], &stack_a);
-		else
-			generate_stack_from_entry(ft_split(argv[start_index], ' '), &stack_a);
-	}
-	if (start_index == 2)
-	{
-		if (!strcmp(argv[1], "--simple"))
-			selection_sort(&stack_a, &stack_b);
-		else if (!strcmp(argv[1], "--medium"))
-			range_sort(&stack_a, &stack_b);
-	}
+		generate_stack_from_entry(&argv[start_index], &stack_a);
+	if (opt.benchmark_enabled)
+		ft_printf("bench...");
+	if (opt.sort_mode == SORT_SIMPLE)
+		selection_sort(&stack_a, &stack_b);
+	else if (opt.sort_mode == SORT_MEDIUM)
+		range_sort(&stack_a, &stack_b);
+	// else if (opt.sort_mode == SORT_COMPLEX)
+	// 	;
+	// else if (opt.sort_mode == SORT_ADAPTATIVE)
+	// 	;
+
+	display_stack(&stack_a);
+	return (0);
 }
