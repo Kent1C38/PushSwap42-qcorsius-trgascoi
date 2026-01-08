@@ -19,5 +19,11 @@
 void	range_sort(t_identified_stack *a, t_identified_stack *b);
 int		*create_sorted_array(t_identified_stack *a, int size);
 int		get_rank(int value, int *sorted_arr, int size);
+void	push_to_b_with_range(t_identified_stack *a, t_identified_stack *b,
+			int *sorted, int size);
+int		max_value_in_stack(t_identified_stack *stack);
+int		find_position(t_identified_stack *stack, int value);
+void	move_max_to_top_b(t_identified_stack *b);
+void	push_back_to_a(t_identified_stack *a, t_identified_stack *b);
 
 #endif

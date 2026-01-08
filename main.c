@@ -6,7 +6,7 @@
 /*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:28:33 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 20:52:39 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:10:22 by trgascoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,12 @@ int	generate_stack_from_entry(char **entries, t_identified_stack *id_stack)
 		if (id_stack->content == NULL)
 			id_stack->content = new_stack(ft_atoi(entries[index - 1]));
 		else
-			if(!push_stack(ft_atoi(entries[index - 1]), &id_stack->content))
-				return 0;
+			if (!push_stack(ft_atoi(entries[index - 1]), &id_stack->content))
+				return (0);
 		index--;
 	}
 	return (1);
 }
-
-// int	option_handling(char *option, char *entry)
-// {
-// 	;
-// }
 
 void	display_stack(t_identified_stack *id_stack)
 {
@@ -72,13 +67,12 @@ int	main(int argc, char **argv)
 {
 	t_identified_stack	stack_a;
 	t_identified_stack	stack_b;
-	int	start_index;
-	
+	int					start_index;
+
 	stack_a.id = 'a';
 	stack_a.content = NULL;
 	stack_b.id = 'b';
 	stack_b.content = NULL;
-
 	if (argc <= 1)
 		return (0);
 	start_index = 1;
@@ -98,17 +92,4 @@ int	main(int argc, char **argv)
 		else if (!strcmp(argv[1], "--medium"))
 			range_sort(&stack_a, &stack_b);
 	}
-	
-	// ft_printf("\nSorted Stack:\n");
-	// display_stack(&stack_a);
-
-	// if (argc <= 1)
-	// 	return (0);
-	// if (argc > 2)
-	// {
-	// 	if (argv[2][0] == '-')
-	// 		return (option_handling(argv[2], argv[3]));
-	// 	else
-			
-	// }
 }
