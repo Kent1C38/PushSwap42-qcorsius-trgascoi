@@ -15,6 +15,7 @@
 #include "libft/includes/libft.h"
 #include "range_sort.h"
 #include "radix_sort.h"
+#include "adaptive_sort.h"
 #include <string.h>
 
 int		selection_sort(t_identified_stack *stack_a,
@@ -30,6 +31,8 @@ static void	run_sort(char *mode, t_identified_stack *a, t_identified_stack *b)
 		range_sort(a, b);
 	else if (!strcmp(mode, "--complex"))
 		radix_sort(a, b);
+	else if (!strcmp(mode, "--adaptive"))
+		adaptive_sort(a, b);
 }
 
 int	main(int argc, char **argv)
@@ -48,5 +51,7 @@ int	main(int argc, char **argv)
 		parse_and_generate(argv, start_index, &stack_a);
 	if (start_index == 2)
 		run_sort(argv[1], &stack_a, &stack_b);
+	else
+		adaptive_sort(&stack_a, &stack_b);
 	return (0);
 }
