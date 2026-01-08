@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_string_check(char *string, int (*f)(char))
+int	ft_string_check(char *string, int (*f)(int))
 {
 	int	i;
 
