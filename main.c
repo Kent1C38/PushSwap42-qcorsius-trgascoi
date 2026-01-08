@@ -12,14 +12,13 @@
 
 #include "push_swap.h"
 #include "libft/includes/ft_printf.h"
-#include "libft/includes/libft.h"
 #include "range_sort.h"
 #include "radix_sort.h"
 #include "adaptive_sort.h"
 
 int		selection_sort(t_identified_stack *stack_a,
 			t_identified_stack *stack_b);
-int	generate_stack_from_entry(char **entries, t_identified_stack *id_stack);
+int		generate_stack_from_entry(char **entries, t_identified_stack *id_stack);
 void	init_stacks(t_identified_stack *a, t_identified_stack *b);
 void	display_stack(t_identified_stack *id_stack);
 
@@ -47,8 +46,8 @@ int	main(int argc, char **argv)
 		range_sort(&stack_a, &stack_b);
 	else if (opt.sort_mode == SORT_COMPLEX)
 	 	radix_sort(&stack_a, &stack_b);
-	// else if (opt.sort_mode == SORT_ADAPTATIVE)
-	// 	;
+	else if (opt.sort_mode == SORT_ADAPTATIVE)
+	 	adaptive_sort(&stack_a, &stack_b);
 
 	display_stack(&stack_a);
 	return (0);
