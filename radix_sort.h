@@ -16,6 +16,12 @@
 # include "push_swap.h"
 # include "sort_utils.h"
 
+typedef struct s_sort_ctx
+{
+	int	*sorted;
+	int	size;
+}				t_sort_ctx;
+
 void	radix_sort(t_identified_stack *a, t_identified_stack *b);
 
 #endif

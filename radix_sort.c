@@ -6,7 +6,7 @@
 /*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 00:00:00 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/08 00:00:00 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:56:53 by trgascoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@ static int	get_max_bits(int size)
 }
 
 static void	sort_by_bit(t_identified_stack *a, t_identified_stack *b,
-	int *sorted, int size, int bit)
+	t_sort_ctx *ctx, int bit)
 {
 	int	i;
 	int	rank;
+
 	i = 0;
-	while (i < size)
+	while (i < ctx->size)
 	{
-		rank = get_rank(a->content->value, sorted, size);
+		rank = get_rank(a->content->value, ctx->sorted, ctx->size);
 		if (!((rank >> bit) & 1))
 			push(a, b);
 		else
@@ -54,24 +55,23 @@ static void	push_all_back(t_identified_stack *a, t_identified_stack *b)
 
 void	radix_sort(t_identified_stack *a, t_identified_stack *b)
 {
-	int	*sorted_arr;
-	int	size;
-	int	max_bits;
-	int	bit;
+	t_sort_ctx	ctx;
+	int			max_bits;
+	int			bit;
 
-	size = get_stack_size(a);
-	if (size <= 1)
+	ctx.size = get_stack_size(a);
+	if (ctx.size <= 1)
 		return ;
-	sorted_arr = create_sorted_array(a, size);
-	if (!sorted_arr)
+	ctx.sorted = create_sorted_array(a, ctx.size);
+	if (!ctx.sorted)
 		return ;
-	max_bits = get_max_bits(size);
+	max_bits = get_max_bits(ctx.size);
 	bit = 0;
 	while (bit < max_bits)
 	{
-		sort_by_bit(a, b, sorted_arr, size, bit);
+		sort_by_bit(a, b, &ctx, bit);
 		push_all_back(a, b);
 		bit++;
 	}
-	free(sorted_arr);
+	free(ctx.sorted);
 }
