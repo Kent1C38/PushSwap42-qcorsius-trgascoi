@@ -46,9 +46,9 @@ int	main(int argc, char **argv)
 		range_sort(&stack_a, &stack_b);
 	else if (opt.sort_mode == SORT_COMPLEX)
 	 	radix_sort(&stack_a, &stack_b);
-	else if (opt.sort_mode == SORT_ADAPTATIVE)
+	else
 	 	adaptive_sort(&stack_a, &stack_b);
 
-	display_stack(&stack_a);
+	// display_stack(&stack_a);
 	return (0);
 }
