@@ -73,6 +73,7 @@ int	main(int argc, char **argv)
 	stack_a.content = NULL;
 	stack_b.id = 'b';
 	stack_b.content = NULL;
+
 	if (argc <= 1)
 		return (0);
 	start_index = 1;
@@ -80,7 +81,8 @@ int	main(int argc, char **argv)
 		start_index = 2;
 	if (argc > start_index)
 	{
-		if (ft_string_check(argv[start_index], &ft_isdigit))
+		if ((argv[start_index][0] == '-' && ft_string_check(&argv[start_index][1], &ft_isdigit))
+			|| ft_string_check(argv[start_index], &ft_isdigit))
 			generate_stack_from_entry(&argv[start_index], &stack_a);
 		else
 			generate_stack_from_entry(ft_split(argv[start_index], ' '), &stack_a);
