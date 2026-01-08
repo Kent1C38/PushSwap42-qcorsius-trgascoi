@@ -12,6 +12,8 @@ SRCS      = stack_utils.c \
 			selection_sort.c \
 			range_sort.c \
 			range_sort_aux.c \
+			radix_sort.c \
+			main_utils.c \
 			parser.c \
 			main.c
 OBJS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
