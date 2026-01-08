@@ -26,7 +26,6 @@
 #include "libft/includes/ft_printf.h"
 #include "range_sort.h"
 #include "radix_sort.h"
-#include <string.h>
 
 int		selection_sort(t_identified_stack *stack_a,
 			t_identified_stack *stack_b);
@@ -56,8 +55,8 @@ int	main(int argc, char **argv)
 		selection_sort(&stack_a, &stack_b);
 	else if (opt.sort_mode == SORT_MEDIUM)
 		range_sort(&stack_a, &stack_b);
-	// else if (opt.sort_mode == SORT_COMPLEX)
-	// 	;
+	else if (opt.sort_mode == SORT_COMPLEX)
+	 	radix_sort(&stack_a, &stack_b);
 	// else if (opt.sort_mode == SORT_ADAPTATIVE)
 	// 	;
 
