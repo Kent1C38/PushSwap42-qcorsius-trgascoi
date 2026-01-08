@@ -49,11 +49,6 @@ int	generate_stack_from_entry(char **entries, t_identified_stack *id_stack)
 	return (1);
 }
 
-// int	option_handling(char *option, char *entry)
-// {
-// 	;
-// }
-
 void	display_stack(t_identified_stack *id_stack)
 {
 	t_stack	*tmp;
@@ -86,7 +81,8 @@ int	main(int argc, char **argv)
 		start_index = 2;
 	if (argc > start_index)
 	{
-		if (ft_string_check(argv[start_index], &ft_isdigit))
+		if ((argv[start_index][0] == '-' && ft_string_check(&argv[start_index][1], &ft_isdigit))
+			|| ft_string_check(argv[start_index], &ft_isdigit))
 			generate_stack_from_entry(&argv[start_index], &stack_a);
 		else
 			generate_stack_from_entry(ft_split(argv[start_index], ' '), &stack_a);
@@ -98,6 +94,8 @@ int	main(int argc, char **argv)
 		else if (!strcmp(argv[1], "--medium"))
 			range_sort(&stack_a, &stack_b);
 	}
+	ft_printf("\nstack_a\n");
+	display_stack(&stack_a);
 	
 	// ft_printf("\nSorted Stack:\n");
 	// display_stack(&stack_a);
