@@ -10,22 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 10:02:56 by qcorsius          #+#    #+#             */
-/*   Updated: 2026/01/07 17:51:10 by qcorsius         ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 #include "libft/includes/ft_printf.h"
+#include "libft/includes/libft.h"
 #include "range_sort.h"
 #include "radix_sort.h"
+#include "adaptive_sort.h"
 
 int		selection_sort(t_identified_stack *stack_a,
 			t_identified_stack *stack_b);
