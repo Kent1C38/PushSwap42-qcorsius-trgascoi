@@ -13,15 +13,31 @@
 #include "benchmark.h"
 #include "libft/includes/ft_printf.h"
 
-static const char	*get_strategy_name(t_sort_mode mode)
+static const char	*get_complexity(t_sort_mode mode)
 {
 	if (mode == SORT_SIMPLE)
-		return ("Selection - O(n²)");
+		return ("O(n²)");
 	else if (mode == SORT_MEDIUM)
-		return ("Range - O(n √n)");
+		return ("O(n√n)");
 	else if (mode == SORT_COMPLEX)
-		return ("Radix - O(n log n)");
-	return ("Adaptive - O(n*log(n))");
+		return ("O(nlog(n))");
+	return ("O(n²)");
+}
+
+static void	print_strategy(t_sort_mode original, t_sort_mode effective)
+{
+	if (original == SORT_ADAPTATIVE || original == SORT_NONE)
+		ft_printf("[bench] Strategy: Adaptive - %s\n",
+			get_complexity(effective));
+	else if (original == SORT_SIMPLE)
+		ft_printf("[bench] Strategy: Simple - %s\n",
+			get_complexity(effective));
+	else if (original == SORT_MEDIUM)
+		ft_printf("[bench] Strategy: Medium - %s\n",
+			get_complexity(effective));
+	else if (original == SORT_COMPLEX)
+		ft_printf("[bench] Strategy: Complex - %s\n",
+			get_complexity(effective));
 }
 
 static void	print_disorder(double disorder)
@@ -37,12 +53,13 @@ static void	print_disorder(double disorder)
 		ft_printf("\n[bench] Disorder: %d.%d%%\n", d_int, d_dec);
 }
 
-void	bench_print(t_op_counter *c, double disorder, t_sort_mode mode)
+void	bench_print(t_op_counter *c, double disorder,
+		t_sort_mode original_mode, t_sort_mode effective_mode)
 {
 	if (!c)
 		return ;
 	print_disorder(disorder);
-	ft_printf("[bench] Strategy: %s\n", get_strategy_name(mode));
+	print_strategy(original_mode, effective_mode);
 	ft_printf("[bench] Total operations: %d\n", c->total);
 	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
 		c->sa, c->sb, c->ss, c->pa, c->pb);

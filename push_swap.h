@@ -58,6 +58,7 @@ typedef struct s_options
 	t_sort_mode	sort_mode;
 	int			benchmark_enabled;
 	double		disorder;
+	t_sort_mode	effective_mode;
 }	t_options;
 
 t_stack	*new_stack(int value);

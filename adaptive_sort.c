@@ -53,15 +53,24 @@ double	compute_disorder(t_identified_stack *a)
 	return ((double)mistakes / (double)total_pairs);
 }
 
-void	adaptive_sort(t_identified_stack *a, t_identified_stack *b)
+t_sort_mode	adaptive_sort(t_identified_stack *a, t_identified_stack *b)
 {
 	double	disorder;
 
 	disorder = compute_disorder(a);
 	if (disorder < 0.2)
+	{
 		selection_sort(a, b);
+		return (SORT_SIMPLE);
+	}
 	else if (disorder < 0.5)
+	{
 		range_sort(a, b);
+		return (SORT_MEDIUM);
+	}
 	else
+	{
 		radix_sort(a, b);
+		return (SORT_COMPLEX);
+	}
 }

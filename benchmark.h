@@ -17,6 +17,7 @@
 
 void	bench_init(t_op_counter *counter);
 void	bench_count(t_op_counter *counter, char op, char stack_id);
-void	bench_print(t_op_counter *counter, double disorder, t_sort_mode mode);
+void	bench_print(t_op_counter *counter, double disorder,
+			t_sort_mode original_mode, t_sort_mode effective_mode);
 
 #endif

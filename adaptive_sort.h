@@ -16,7 +16,7 @@
 # include "push_swap.h"
 # include "sort_utils.h"
 
-double	compute_disorder(t_identified_stack *a);
-void	adaptive_sort(t_identified_stack *a, t_identified_stack *b);
+double		compute_disorder(t_identified_stack *a);
+t_sort_mode	adaptive_sort(t_identified_stack *a, t_identified_stack *b);
 
 #endif

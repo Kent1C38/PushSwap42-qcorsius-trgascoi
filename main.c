@@ -26,17 +26,26 @@ int		generate_stack_from_entry(char **entries, t_identified_stack *id_stack);
 void	init_stacks(t_identified_stack *a, t_identified_stack *b);
 void	display_stack(t_identified_stack *id_stack);
 
-static void	execute_sort(t_identified_stack *a, t_identified_stack *b,
+static t_sort_mode	execute_sort(t_identified_stack *a, t_identified_stack *b,
 				t_sort_mode mode)
 {
 	if (mode == SORT_SIMPLE)
+	{
 		selection_sort(a, b);
+		return (SORT_SIMPLE);
+	}
 	else if (mode == SORT_MEDIUM)
+	{
 		range_sort(a, b);
+		return (SORT_MEDIUM);
+	}
 	else if (mode == SORT_COMPLEX)
+	{
 		radix_sort(a, b);
+		return (SORT_COMPLEX);
+	}
 	else
-		adaptive_sort(a, b);
+		return (adaptive_sort(a, b));
 }
 
 static int	parse_and_add_args(int argc, char **argv, int start,
@@ -101,8 +110,8 @@ int	main(int argc, char **argv)
 	setup_bench(&opt, &stack_a, &stack_b, &counter);
 	if (opt.benchmark_enabled)
 		opt.disorder = compute_disorder(&stack_a);
-	execute_sort(&stack_a, &stack_b, opt.sort_mode);
+	opt.effective_mode = execute_sort(&stack_a, &stack_b, opt.sort_mode);
 	if (opt.benchmark_enabled)
-		bench_print(&counter, opt.disorder, opt.sort_mode);
+		bench_print(&counter, opt.disorder, opt.sort_mode, opt.effective_mode);
 	return (0);
 }
