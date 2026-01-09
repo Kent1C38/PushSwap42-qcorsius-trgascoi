@@ -34,7 +34,8 @@ void	swap(t_identified_stack *id_stack)
 	if (id_stack->id != 0)
 	{
 		bench_count(id_stack->counter, 's', id_stack->id);
-		ft_printf("s%c\n", id_stack->id);
+		if (!id_stack->silent)
+			ft_printf("s%c\n", id_stack->id);
 	}
 }
 
@@ -52,7 +53,8 @@ void	swap_both(t_identified_stack *a, t_identified_stack *b)
 	a->id = id_a;
 	b->id = id_b;
 	bench_count(a->counter, 'S', 0);
-	ft_printf("ss\n");
+	if (!a->silent)
+		ft_printf("ss\n");
 }
 
 int	push(t_identified_stack *from, t_identified_stack *to)
@@ -65,7 +67,8 @@ int	push(t_identified_stack *from, t_identified_stack *to)
 	if (!push_stack(temp_val, &(to->content)))
 		return (0);
 	bench_count(to->counter, 'p', to->id);
-	ft_printf("p%c\n", to->id);
+	if (!to->silent)
+		ft_printf("p%c\n", to->id);
 	return (1);
 }
 

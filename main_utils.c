@@ -20,9 +20,11 @@ void	init_stacks(t_identified_stack *a, t_identified_stack *b)
 	a->id = 'a';
 	a->content = NULL;
 	a->counter = NULL;
+	a->silent = 0;
 	b->id = 'b';
 	b->content = NULL;
 	b->counter = NULL;
+	b->silent = 0;
 }
 
 int	generate_stack_from_entry(char **entries, t_identified_stack *id_stack)

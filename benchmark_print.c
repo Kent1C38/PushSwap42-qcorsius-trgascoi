@@ -16,12 +16,12 @@
 static const char	*get_strategy_name(t_sort_mode mode)
 {
 	if (mode == SORT_SIMPLE)
-		return ("Simple O(n^2)");
+		return ("Selection - O(n²)");
 	else if (mode == SORT_MEDIUM)
-		return ("Medium O(n*sqrt(n))");
+		return ("Range - O(n √n)");
 	else if (mode == SORT_COMPLEX)
-		return ("Complex O(n*log(n))");
-	return ("Adaptive");
+		return ("Radix - O(n log n)");
+	return ("Adaptive - O(n*log(n))");
 }
 
 static void	print_disorder(double disorder)
@@ -44,8 +44,8 @@ void	bench_print(t_op_counter *c, double disorder, t_sort_mode mode)
 	print_disorder(disorder);
 	ft_printf("[bench] Strategy: %s\n", get_strategy_name(mode));
 	ft_printf("[bench] Total operations: %d\n", c->total);
-	ft_printf("[bench] sa: %d, sb: %d, ss: %d\n", c->sa, c->sb, c->ss);
-	ft_printf("pa: %d, pb: %d\n", c->pa, c->pb);
-	ft_printf("ra: %d, rb: %d, rr: %d\n", c->ra, c->rb, c->rr);
-	ft_printf("rra: %d, rrb: %d, rrr: %d\n", c->rra, c->rrb, c->rrr);
+	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
+		c->sa, c->sb, c->ss, c->pa, c->pb);
+	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+		c->ra, c->rb, c->rr, c->rra, c->rrb, c->rrr);
 }

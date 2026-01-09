@@ -77,6 +77,8 @@ static void	setup_bench(t_options *opt, t_identified_stack *a,
 		bench_init(counter);
 		a->counter = counter;
 		b->counter = counter;
+		a->silent = 1;
+		b->silent = 1;
 	}
 }
 
@@ -97,8 +99,10 @@ int	main(int argc, char **argv)
 		if (!parse_and_add_args(argc, argv, start_index, &stack_a))
 			return (write(2, "Error\n", 6), 1);
 	setup_bench(&opt, &stack_a, &stack_b, &counter);
+	if (opt.benchmark_enabled)
+		opt.disorder = compute_disorder(&stack_a);
 	execute_sort(&stack_a, &stack_b, opt.sort_mode);
 	if (opt.benchmark_enabled)
-		bench_print(&counter, compute_disorder(&stack_a), opt.sort_mode);
+		bench_print(&counter, opt.disorder, opt.sort_mode);
 	return (0);
 }

@@ -41,6 +41,7 @@ typedef struct s_identified_stack
 	char			id;
 	t_stack			*content;
 	t_op_counter	*counter;
+	int				silent;
 }	t_identified_stack;
 
 typedef enum e_sort_mode
@@ -56,6 +57,7 @@ typedef struct s_options
 {
 	t_sort_mode	sort_mode;
 	int			benchmark_enabled;
+	double		disorder;
 }	t_options;
 
 t_stack	*new_stack(int value);
