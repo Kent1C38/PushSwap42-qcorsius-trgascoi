@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "benchmark.h"
 #include "stddef.h"
 #include "libft/includes/ft_printf.h"
 
@@ -31,7 +32,10 @@ void	swap(t_identified_stack *id_stack)
 	next_stack->next = (*stack);
 	(*stack) = next_stack;
 	if (id_stack->id != 0)
+	{
+		bench_count(id_stack->counter, 's', id_stack->id);
 		ft_printf("s%c\n", id_stack->id);
+	}
 }
 
 void	swap_both(t_identified_stack *a, t_identified_stack *b)
@@ -47,6 +51,7 @@ void	swap_both(t_identified_stack *a, t_identified_stack *b)
 	swap(b);
 	a->id = id_a;
 	b->id = id_b;
+	bench_count(a->counter, 'S', 0);
 	ft_printf("ss\n");
 }
 
@@ -59,6 +64,7 @@ int	push(t_identified_stack *from, t_identified_stack *to)
 	temp_val = pop_stack(&(from->content));
 	if (!push_stack(temp_val, &(to->content)))
 		return (0);
+	bench_count(to->counter, 'p', to->id);
 	ft_printf("p%c\n", to->id);
 	return (1);
 }

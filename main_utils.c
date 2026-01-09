@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 00:00:00 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/08 00:00:00 by trgascoi         ###   ########.fr       */
+/*   Created: 2026/01/08 15:00:37 by trgascoi          #+#    #+#             */
+/*   Updated: 2026/01/09 17:57:16 by trgascoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	init_stacks(t_identified_stack *a, t_identified_stack *b)
 {
 	a->id = 'a';
 	a->content = NULL;
+	a->counter = NULL;
 	b->id = 'b';
 	b->content = NULL;
+	b->counter = NULL;
 }
 
 int	generate_stack_from_entry(char **entries, t_identified_stack *id_stack)

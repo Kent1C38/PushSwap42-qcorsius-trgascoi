@@ -16,6 +16,8 @@ SRCS      = stack_utils.c \
 			adaptive_sort.c \
 			main_utils.c \
 			input_validation.c \
+			benchmark.c \
+			benchmark_print.c \
 			parser.c \
 			main.c
 OBJS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))

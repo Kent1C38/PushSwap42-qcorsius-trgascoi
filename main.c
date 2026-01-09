@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "benchmark.h"
 #include "libft/includes/ft_printf.h"
 #include "libft/includes/libft.h"
 #include "range_sort.h"
@@ -68,31 +69,36 @@ static int	parse_and_add_args(int argc, char **argv, int start,
 	return (1);
 }
 
+static void	setup_bench(t_options *opt, t_identified_stack *a,
+				t_identified_stack *b, t_op_counter *counter)
+{
+	if (opt->benchmark_enabled)
+	{
+		bench_init(counter);
+		a->counter = counter;
+		b->counter = counter;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_identified_stack	stack_a;
 	t_identified_stack	stack_b;
 	t_options			opt;
 	int					start_index;
+	t_op_counter		counter;
 
 	init_stacks(&stack_a, &stack_b);
 	if (argc <= 1)
 		return (0);
 	if (!parse_options(argc, argv, &opt, &start_index))
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
+		return (write(2, "Error\n", 6), 1);
 	if (argc > start_index)
-	{
 		if (!parse_and_add_args(argc, argv, start_index, &stack_a))
-		{
-			write(2, "Error\n", 6);
-			return (1);
-		}
-	}
-	if (opt.benchmark_enabled)
-		ft_printf("bench...");
+			return (write(2, "Error\n", 6), 1);
+	setup_bench(&opt, &stack_a, &stack_b, &counter);
 	execute_sort(&stack_a, &stack_b, opt.sort_mode);
+	if (opt.benchmark_enabled)
+		bench_print(&counter, compute_disorder(&stack_a), opt.sort_mode);
 	return (0);
 }

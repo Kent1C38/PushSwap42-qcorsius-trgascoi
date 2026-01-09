@@ -20,10 +20,27 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+typedef struct s_op_counter
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+}	t_op_counter;
+
 typedef struct s_identified_stack
 {
-	char	id;
-	t_stack	*content;
+	char			id;
+	t_stack			*content;
+	t_op_counter	*counter;
 }	t_identified_stack;
 
 typedef enum e_sort_mode
