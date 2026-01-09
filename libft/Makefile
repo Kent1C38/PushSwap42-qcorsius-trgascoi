@@ -47,6 +47,7 @@ SRCS =\
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
 	ft_printf/ft_printf.c \
+	ft_printf/ft_dprintf.c \
 	ft_printf/utils.c \
 	ft_string_check.c \
 	ft_strcmp.c

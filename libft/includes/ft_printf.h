@@ -19,5 +19,6 @@ int	ft_putstr(char *str, int *total);
 int	put_nb_base(unsigned long number, char *base, int *total);
 
 int	ft_printf(const char *str, ...);
+int	ft_dprintf(int fd, const char *str, ...);
 
 #endif

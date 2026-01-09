@@ -27,16 +27,16 @@ static const char	*get_complexity(t_sort_mode mode)
 static void	print_strategy(t_sort_mode original, t_sort_mode effective)
 {
 	if (original == SORT_ADAPTATIVE || original == SORT_NONE)
-		ft_printf("[bench] Strategy: Adaptive - %s\n",
+		ft_dprintf(2, "[bench] Strategy: Adaptive - %s\n",
 			get_complexity(effective));
 	else if (original == SORT_SIMPLE)
-		ft_printf("[bench] Strategy: Simple - %s\n",
+		ft_dprintf(2, "[bench] Strategy: Simple - %s\n",
 			get_complexity(effective));
 	else if (original == SORT_MEDIUM)
-		ft_printf("[bench] Strategy: Medium - %s\n",
+		ft_dprintf(2, "[bench] Strategy: Medium - %s\n",
 			get_complexity(effective));
 	else if (original == SORT_COMPLEX)
-		ft_printf("[bench] Strategy: Complex - %s\n",
+		ft_dprintf(2, "[bench] Strategy: Complex - %s\n",
 			get_complexity(effective));
 }
 
@@ -48,9 +48,9 @@ static void	print_disorder(double disorder)
 	d_int = (int)(disorder * 100);
 	d_dec = (int)(disorder * 10000) % 100;
 	if (d_dec < 10)
-		ft_printf("\n[bench] Disorder: %d.0%d%%\n", d_int, d_dec);
+		ft_dprintf(2, "[bench] Disorder: %d.0%d%%\n", d_int, d_dec);
 	else
-		ft_printf("\n[bench] Disorder: %d.%d%%\n", d_int, d_dec);
+		ft_dprintf(2, "[bench] Disorder: %d.%d%%\n", d_int, d_dec);
 }
 
 void	bench_print(t_op_counter *c, double disorder,
@@ -60,9 +60,9 @@ void	bench_print(t_op_counter *c, double disorder,
 		return ;
 	print_disorder(disorder);
 	print_strategy(original_mode, effective_mode);
-	ft_printf("[bench] Total operations: %d\n", c->total);
-	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
+	ft_dprintf(2, "[bench] Total operations: %d\n", c->total);
+	ft_dprintf(2, "[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
 		c->sa, c->sb, c->ss, c->pa, c->pb);
-	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+	ft_dprintf(2, "[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
 		c->ra, c->rb, c->rr, c->rra, c->rrb, c->rrr);
 }
