@@ -63,3 +63,17 @@ int	pop_stack(t_stack **stack)
 		*stack = NULL;
 	return (value);
 }
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack || !*stack)
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+}

@@ -64,6 +64,7 @@ typedef struct s_options
 t_stack	*new_stack(int value);
 int		push_stack(int value, t_stack **stack);
 int		pop_stack(t_stack **stack);
+void	free_stack(t_stack **stack);
 
 void	swap(t_identified_stack *id_stack);
 int		push(t_identified_stack *from, t_identified_stack *to);

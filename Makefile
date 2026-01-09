@@ -11,7 +11,7 @@ SRCS      = stack_utils.c \
 			sort_utils.c \
 			selection_sort.c \
 			range_sort.c \
-			range_sort_aux.c \
+			range_sort_utils.c \
 			radix_sort.c \
 			adaptive_sort.c \
 			main_utils.c \

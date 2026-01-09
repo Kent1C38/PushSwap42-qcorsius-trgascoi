@@ -11,9 +11,36 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "range_sort.h"
+#include "radix_sort.h"
+#include "adaptive_sort.h"
 #include "libft/includes/ft_printf.h"
 #include "libft/includes/libft.h"
 #include <stdlib.h>
+
+int	selection_sort(t_identified_stack *stack_a, t_identified_stack *stack_b);
+
+t_sort_mode	execute_sort(t_identified_stack *a, t_identified_stack *b,
+	t_sort_mode mode)
+{
+	if (mode == SORT_SIMPLE)
+	{
+		selection_sort(a, b);
+		return (SORT_SIMPLE);
+	}
+	else if (mode == SORT_MEDIUM)
+	{
+		range_sort(a, b);
+		return (SORT_MEDIUM);
+	}
+	else if (mode == SORT_COMPLEX)
+	{
+		radix_sort(a, b);
+		return (SORT_COMPLEX);
+	}
+	else
+		return (adaptive_sort(a, b));
+}
 
 void	init_stacks(t_identified_stack *a, t_identified_stack *b)
 {
