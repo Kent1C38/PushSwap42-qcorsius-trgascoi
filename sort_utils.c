@@ -94,7 +94,7 @@ void	move_n_to_top(t_identified_stack *stack_a, int n)
 
 int	is_n_in_stack(int n, t_stack *stack)
 {
-	while(stack)
+	while (stack)
 	{
 		if (stack->value == n)
 			return (1);

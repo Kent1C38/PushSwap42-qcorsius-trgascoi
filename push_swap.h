@@ -53,6 +53,9 @@ int		rev_rotate(t_identified_stack *id_stack);
 void	rotate_both(t_identified_stack *a, t_identified_stack *b);
 void	rev_rotate_both(t_identified_stack *a, t_identified_stack *b);
 
-int parse_options(int argc, char **argv, t_options *opt, int *start_index);
+int		parse_options(int argc, char **argv, t_options *opt, int *start_index);
+int		is_numeric_arg(char *arg);
+int		is_valid_int(char *str);
+int		has_duplicate(t_stack *stack, int value);
 
 #endif

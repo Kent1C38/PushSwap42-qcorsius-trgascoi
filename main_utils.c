@@ -13,20 +13,39 @@
 #include "push_swap.h"
 #include "libft/includes/ft_printf.h"
 #include "libft/includes/libft.h"
+#include <stdlib.h>
+
+void	init_stacks(t_identified_stack *a, t_identified_stack *b)
+{
+	a->id = 'a';
+	a->content = NULL;
+	b->id = 'b';
+	b->content = NULL;
+}
 
 int	generate_stack_from_entry(char **entries, t_identified_stack *id_stack)
 {
 	int		index;
+	int		value;
 
 	index = 0;
 	while (entries[index])
+	{
+		if (!entries[index][0])
+			return (0);
+		if (!is_valid_int(entries[index]))
+			return (0);
 		index++;
+	}
 	while (index > 0)
 	{
+		value = ft_atoi(entries[index - 1]);
+		if (has_duplicate(id_stack->content, value))
+			return (0);
 		if (id_stack->content == NULL)
-			id_stack->content = new_stack(ft_atoi(entries[index - 1]));
+			id_stack->content = new_stack(value);
 		else
-			if (!push_stack(ft_atoi(entries[index - 1]), &id_stack->content))
+			if (!push_stack(value, &id_stack->content))
 				return (0);
 		index--;
 	}
@@ -45,27 +64,4 @@ void	display_stack(t_identified_stack *id_stack)
 		ft_printf("%d\n", tmp->value);
 		tmp = tmp->next;
 	}
-}
-
-void	init_stacks(t_identified_stack *a, t_identified_stack *b)
-{
-	a->id = 'a';
-	a->content = NULL;
-	b->id = 'b';
-	b->content = NULL;
-}
-
-int	is_numeric_arg(char *arg)
-{
-	if (arg[0] == '-' && ft_string_check(&arg[1], &ft_isdigit))
-		return (1);
-	return (ft_string_check(arg, &ft_isdigit));
-}
-
-void	parse_and_generate(char **argv, int idx, t_identified_stack *a)
-{
-	if (is_numeric_arg(argv[idx]))
-		generate_stack_from_entry(&argv[idx], a);
-	else
-		generate_stack_from_entry(ft_split(argv[idx], ' '), a);
 }
