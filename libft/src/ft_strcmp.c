@@ -31,8 +31,8 @@ int	ft_strcmp(const char *s1, const char *s2)
 		i++;
 	}
 	if ((unsigned char)s1[i] == '\0' && (unsigned char)s2[i] != '\0')
-			return (-1);
+		return (-1);
 	if ((unsigned char)s2[i] == '\0' && (unsigned char)s1[i] != '\0')
-			return (1);
+		return (1);
 	return (0);
 }

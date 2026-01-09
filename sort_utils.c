@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:30:00 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 14:35:54 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:50:40 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,15 @@ void	move_n_to_top(t_identified_stack *stack_a, int n)
 				break ;
 		}
 	}
+}
+
+int	is_n_in_stack(int n, t_stack *stack)
+{
+	while(stack)
+	{
+		if (stack->value == n)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
 }
