@@ -1,6 +1,6 @@
 NAME      = push_swap
 CC        = cc
-CFLAGS    = -Wall -Wextra -Werror -MMD -g3
+CFLAGS    = -Wall -Wextra -Werror -MMD
 OBJ_DIR   = .objects
 SRC_DIR   = .
 INC_DIR   = .
@@ -20,6 +20,7 @@ SRCS      = stack_utils.c \
 			benchmark_print.c \
 			parser.c \
 			main.c
+
 OBJS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 DEPS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.d)))
 

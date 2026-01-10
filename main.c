@@ -12,10 +12,7 @@
 
 #include "push_swap.h"
 #include "benchmark.h"
-#include "libft/includes/ft_printf.h"
 #include "libft/includes/libft.h"
-#include "range_sort.h"
-#include "radix_sort.h"
 #include "adaptive_sort.h"
 #include <unistd.h>
 #include <stdlib.h>
