@@ -22,6 +22,9 @@ The program is lauched following this pattern:<br>
 `--bench` : instead of writing all steps performed, writes a resume that prints the disorder percentage, the chosen algorithm, and counts the total operations
 
 # Resources
+Tools:
+- [PSV (Push-Swap Vizualizer)](https://github.com/Raoul1808/psv)
+
 Websites:
 - [Reddit](https://www.reddit.com/)
 - [Stack Overflow](https://stackoverflow.com/)
