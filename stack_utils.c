@@ -31,7 +31,7 @@ int	push_stack(int value, t_stack **stack)
 	modified = new_stack(value);
 	if (!modified)
 		return (0);
-	if (*stack != NULL && stack != NULL)
+	if (stack != NULL && *stack != NULL)
 	{
 		modified->next = *stack;
 		(*stack)->previous = modified;
