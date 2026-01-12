@@ -22,8 +22,6 @@
 
 int			selection_sort(t_identified_stack *stack_a,
 				t_identified_stack *stack_b);
-int			generate_stack_from_entry(char **entries,
-				t_identified_stack *id_stack);
 void		init_stacks(t_identified_stack *a, t_identified_stack *b);
 void		display_stack(t_identified_stack *id_stack);
 t_sort_mode	execute_sort(t_identified_stack *a, t_identified_stack *b,
@@ -32,30 +30,15 @@ t_sort_mode	execute_sort(t_identified_stack *a, t_identified_stack *b,
 static int	parse_and_add_args(int argc, char **argv, int start,
 				t_identified_stack *stack_a)
 {
-	char	**split;
-	int		i;
+	int	i;
 
-	if (argc - start == 1 && ft_strchr(argv[start], ' '))
+	i = argc - 1;
+	while (i >= start)
 	{
-		split = ft_split(argv[start], ' ');
-		if (!split || !generate_stack_from_entry(split, stack_a))
-		{
-			i = 0;
-			if (split)
-			{
-				while (split[i])
-					free(split[i++]);
-				free(split);
-			}
+		if (!process_one_arg(argv[i], stack_a))
 			return (0);
-		}
-		i = 0;
-		while (split[i])
-			free(split[i++]);
-		free(split);
+		i--;
 	}
-	else
-		return (generate_stack_from_entry(&argv[start], stack_a));
 	return (1);
 }
 

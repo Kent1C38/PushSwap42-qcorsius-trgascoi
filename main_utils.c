@@ -54,30 +54,35 @@ void	init_stacks(t_identified_stack *a, t_identified_stack *b)
 	b->silent = 0;
 }
 
+int	add_one_entry(char *entry, t_identified_stack *id_stack)
+{
+	int	value;
+
+	if (!entry[0])
+		return (0);
+	if (!is_valid_int(entry))
+		return (0);
+	value = ft_atoi(entry);
+	if (has_duplicate(id_stack->content, value))
+		return (0);
+	if (id_stack->content == NULL)
+		id_stack->content = new_stack(value);
+	else if (!push_stack(value, &id_stack->content))
+		return (0);
+	return (1);
+}
+
 int	generate_stack_from_entry(char **entries, t_identified_stack *id_stack)
 {
 	int		index;
-	int		value;
 
 	index = 0;
 	while (entries[index])
-	{
-		if (!entries[index][0])
-			return (0);
-		if (!is_valid_int(entries[index]))
-			return (0);
 		index++;
-	}
 	while (index > 0)
 	{
-		value = ft_atoi(entries[index - 1]);
-		if (has_duplicate(id_stack->content, value))
+		if (!add_one_entry(entries[index - 1], id_stack))
 			return (0);
-		if (id_stack->content == NULL)
-			id_stack->content = new_stack(value);
-		else
-			if (!push_stack(value, &id_stack->content))
-				return (0);
 		index--;
 	}
 	return (1);

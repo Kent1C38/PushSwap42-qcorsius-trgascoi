@@ -78,5 +78,8 @@ int		parse_options(int argc, char **argv, t_options *opt, int *start_index);
 int		is_numeric_arg(char *arg);
 int		is_valid_int(char *str);
 int		has_duplicate(t_stack *stack, int value);
+int		add_one_entry(char *entry, t_identified_stack *id_stack);
+int		generate_stack_from_entry(char **entries, t_identified_stack *id_stack);
+int		process_one_arg(char *arg, t_identified_stack *stack_a);
 
 #endif

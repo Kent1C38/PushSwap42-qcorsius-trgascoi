@@ -19,6 +19,7 @@ SRCS      = stack_utils.c \
 			benchmark.c \
 			benchmark_print.c \
 			parser.c \
+			arg_parser.c \
 			main.c
 OBJS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 DEPS      = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.d)))
