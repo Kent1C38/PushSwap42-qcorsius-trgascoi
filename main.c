@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:28:33 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/08 14:10:22 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/13 15:00:10 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ int	main(int argc, char **argv)
 	{
 		free_stack(&stack_a.content);
 		free_stack(&stack_b.content);
-		return (write(2, "Error\n", 6), 1);
+		write(2, "Error\n", 6);
+		return (1);
 	}
 	run_sort(&stack_a, &stack_b, &opt, &counter);
 	free_stack(&stack_a.content);

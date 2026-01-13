@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:27:19 by qcorsius          #+#    #+#             */
-/*   Updated: 2026/01/07 16:40:40 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/13 15:03:04 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_stack	*new_stack(int value)
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
 	new->value = value;
 	new->next = NULL;
 	new->previous = NULL;

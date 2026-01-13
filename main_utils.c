@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:00:37 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/09 17:57:16 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/13 14:59:23 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,11 @@ int	add_one_entry(char *entry, t_identified_stack *id_stack)
 	if (has_duplicate(id_stack->content, value))
 		return (0);
 	if (id_stack->content == NULL)
+	{
 		id_stack->content = new_stack(value);
+		if (id_stack->content == NULL)
+			return (0);
+	}
 	else if (!push_stack(value, &id_stack->content))
 		return (0);
 	return (1);

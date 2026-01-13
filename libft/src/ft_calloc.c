@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 10:50:06 by qcorsius          #+#    #+#             */
-/*   Updated: 2025/11/21 15:46:43 by qcorsius         ###   ########.fr       */
+/*   Updated: 2026/01/13 14:50:42 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (malloc_size > INT_MAX)
 		return (NULL);
 	array = malloc(malloc_size);
-	if (array != NULL)
-		ft_bzero(array, nmemb * size);
+	if (!array)
+		return (NULL);
+	ft_bzero(array, nmemb * size);
 	return (array);
 }
