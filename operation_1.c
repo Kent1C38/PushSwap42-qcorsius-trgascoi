@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:26:48 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/17 13:38:58 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 13:45:37 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,3 @@ int	push(t_identified_stack *from, t_identified_stack *to)
 	ft_printf("p%c\n", to->id);
 	return (1);
 }
-
-/*
-
-int main(void)
-{
-    t_stack *stack = new_stack(1);
-    push_stack(2, &stack);
-    push_stack(3, &stack);
-    swap(&stack);
-    while (stack)
-    {
-        ft_printf("%d\n", stack->value);
-        stack = stack->next;
-    }
-}
-*/

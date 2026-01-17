@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 12:32:22 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/17 13:39:13 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 13:45:46 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,40 +95,3 @@ void	rev_rotate_both(t_identified_stack *a, t_identified_stack *b)
 	bench_count(a->counter, 'V', 0);
 	ft_printf("rrr\n");
 }
-
-/*
-void	display_stack(t_identified_stack *id_stack)
-{
-	t_stack	*tmp;
-
-	tmp = id_stack->content;
-	while (tmp)
-	{
-		ft_printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-}
-int	main(void)
-{
-	t_identified_stack	stack_a;
-	t_identified_stack	stack_b;
-
-	stack_a.id = 'a';
-	stack_a.content = new_stack(1);
-	push_stack(2, &(stack_a.content));
-	push_stack(3, &(stack_a.content));
-	push_stack(4, &(stack_a.content));
-	
-	stack_b.id = 'b';
-	stack_b.content = new_stack(10);
-	push_stack(11, &(stack_b.content));
-	push_stack(12, &(stack_b.content));
-	push_stack(13, &(stack_b.content));
-	
-	push(&stack_b, &stack_a);
-	
-	display_stack(&stack_a);
-	ft_printf("\n");
-	display_stack(&stack_b);
-}
-*/
