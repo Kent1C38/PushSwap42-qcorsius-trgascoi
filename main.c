@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:28:33 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/13 15:00:10 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 12:58:00 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,12 @@ static void	run_sort(t_identified_stack *a, t_identified_stack *b,
 				t_options *opt, t_op_counter *counter)
 {
 	setup_bench(opt, a, b, counter);
-	if (opt->benchmark_enabled)
-		opt->disorder = compute_disorder(a);
+	opt->disorder = compute_disorder(a);
+	if (opt->disorder == 0.0)
+	{
+		opt->effective_mode = SORT_NONE;
+		return ;
+	}
 	opt->effective_mode = execute_sort(a, b, opt->sort_mode);
 	if (opt->benchmark_enabled)
 		bench_print(counter, opt->disorder, opt->sort_mode,
