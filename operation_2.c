@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trgascoi <trgascoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 12:32:22 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 13:07:03 by trgascoi         ###   ########.fr       */
+/*   Updated: 2026/01/17 13:39:13 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int	rotate(t_identified_stack *id_stack)
 	if (id_stack->id != 0)
 	{
 		bench_count(id_stack->counter, 'r', id_stack->id);
-		if (!id_stack->silent)
-			ft_printf("r%c\n", id_stack->id);
+		ft_printf("r%c\n", id_stack->id);
 	}
 	return (1);
 }
@@ -58,8 +57,7 @@ int	rev_rotate(t_identified_stack *id_stack)
 	if (id_stack->id != 0)
 	{
 		bench_count(id_stack->counter, 'v', id_stack->id);
-		if (!id_stack->silent)
-			ft_printf("rr%c\n", id_stack->id);
+		ft_printf("rr%c\n", id_stack->id);
 	}
 	return (push_stack(value, &(id_stack->content)));
 }
@@ -78,8 +76,7 @@ void	rotate_both(t_identified_stack *a, t_identified_stack *b)
 	a->id = id_a;
 	b->id = id_b;
 	bench_count(a->counter, 'R', 0);
-	if (!a->silent)
-		ft_printf("rr\n");
+	ft_printf("rr\n");
 }
 
 void	rev_rotate_both(t_identified_stack *a, t_identified_stack *b)
@@ -96,8 +93,7 @@ void	rev_rotate_both(t_identified_stack *a, t_identified_stack *b)
 	a->id = id_a;
 	b->id = id_b;
 	bench_count(a->counter, 'V', 0);
-	if (!a->silent)
-		ft_printf("rrr\n");
+	ft_printf("rrr\n");
 }
 
 /*

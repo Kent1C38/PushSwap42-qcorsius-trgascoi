@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:16:27 by qcorsius          #+#    #+#             */
-/*   Updated: 2026/01/07 09:50:42 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 13:39:15 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_identified_stack
 	char			id;
 	t_stack			*content;
 	t_op_counter	*counter;
-	int				silent;
 }	t_identified_stack;
 
 typedef enum e_sort_mode

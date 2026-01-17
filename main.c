@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:28:33 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/17 12:58:00 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 13:38:37 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ static void	setup_bench(t_options *opt, t_identified_stack *a,
 		bench_init(counter);
 		a->counter = counter;
 		b->counter = counter;
-		a->silent = 1;
-		b->silent = 1;
 	}
 }
 

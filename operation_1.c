@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:26:48 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/07 11:04:13 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 13:38:58 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ void	swap(t_identified_stack *id_stack)
 	if (id_stack->id != 0)
 	{
 		bench_count(id_stack->counter, 's', id_stack->id);
-		if (!id_stack->silent)
-			ft_printf("s%c\n", id_stack->id);
+		ft_printf("s%c\n", id_stack->id);
 	}
 }
 
@@ -53,8 +52,7 @@ void	swap_both(t_identified_stack *a, t_identified_stack *b)
 	a->id = id_a;
 	b->id = id_b;
 	bench_count(a->counter, 'S', 0);
-	if (!a->silent)
-		ft_printf("ss\n");
+	ft_printf("ss\n");
 }
 
 int	push(t_identified_stack *from, t_identified_stack *to)
@@ -67,8 +65,7 @@ int	push(t_identified_stack *from, t_identified_stack *to)
 	if (!push_stack(temp_val, &(to->content)))
 		return (0);
 	bench_count(to->counter, 'p', to->id);
-	if (!to->silent)
-		ft_printf("p%c\n", to->id);
+	ft_printf("p%c\n", to->id);
 	return (1);
 }
 

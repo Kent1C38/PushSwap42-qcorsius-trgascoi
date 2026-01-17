@@ -6,7 +6,7 @@
 /*   By: qcorsius <qcorsius@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:00:37 by trgascoi          #+#    #+#             */
-/*   Updated: 2026/01/13 14:59:23 by qcorsius         ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 13:38:32 by qcorsius         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,9 @@ void	init_stacks(t_identified_stack *a, t_identified_stack *b)
 	a->id = 'a';
 	a->content = NULL;
 	a->counter = NULL;
-	a->silent = 0;
 	b->id = 'b';
 	b->content = NULL;
 	b->counter = NULL;
-	b->silent = 0;
 }
 
 int	add_one_entry(char *entry, t_identified_stack *id_stack)
