@@ -28,11 +28,7 @@ int	selection_sort(t_identified_stack *stack_a, t_identified_stack *stack_b)
 	while (stack_a->content != NULL)
 	{
 		min = min_value(stack_a);
-		if (stack_a->content->next
-			&& stack_a->content->next->value == min)
-			swap(stack_a);
-		else
-			move_n_to_top(stack_a, min);
+		move_n_to_top(stack_a, min);
 		if (!push(stack_a, stack_b))
 			return (0);
 	}

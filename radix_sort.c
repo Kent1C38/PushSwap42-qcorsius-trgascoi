@@ -42,12 +42,7 @@ static void	radix_push_from_a(t_identified_stack *a, t_identified_stack *b,
 	{
 		rank = get_rank(a->content->value, ctx->sorted, ctx->size);
 		if (!((rank >> bit) & 1))
-		{
 			push(a, b);
-			if (b->content && b->content->next
-				&& b->content->value < b->content->next->value)
-				swap(b);
-		}
 		else
 			rotate(a);
 		i++;
@@ -69,12 +64,7 @@ static void	radix_push_from_b(t_identified_stack *a, t_identified_stack *b,
 	{
 		rank = get_rank(b->content->value, ctx->sorted, ctx->size);
 		if ((rank >> (bit + 1)) & 1 || bit == max_bits - 1)
-		{
 			push(b, a);
-			if (a->content && a->content->next
-				&& a->content->value > a->content->next->value)
-				swap(a);
-		}
 		else
 			rotate(b);
 		i++;
