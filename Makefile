@@ -10,6 +10,7 @@ SRCS      = stack_utils.c \
 			operation_2.c \
 			sort_utils.c \
 			selection_sort.c \
+			small_sort.c \
 			range_sort.c \
 			range_sort_utils.c \
 			radix_sort.c \

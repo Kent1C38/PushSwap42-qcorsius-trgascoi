@@ -13,9 +13,8 @@
 #include "adaptive_sort.h"
 #include "range_sort.h"
 #include "radix_sort.h"
+#include "small_sort.h"
 #include <stddef.h>
-
-int	selection_sort(t_identified_stack *stack_a, t_identified_stack *stack_b);
 
 static int	count_mistakes(t_stack *stack)
 {
@@ -56,11 +55,18 @@ double	compute_disorder(t_identified_stack *a)
 t_sort_mode	adaptive_sort(t_identified_stack *a, t_identified_stack *b)
 {
 	double	disorder;
+	int		size;
 
+	size = get_stack_size(a);
+	if (size <= 3)
+	{
+		small_sort(a, b);
+		return (SORT_SIMPLE);
+	}
 	disorder = compute_disorder(a);
 	if (disorder < 0.2)
 	{
-		selection_sort(a, b);
+		small_sort(a, b);
 		return (SORT_SIMPLE);
 	}
 	else if (disorder < 0.5)

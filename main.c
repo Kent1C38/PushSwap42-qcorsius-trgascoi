@@ -14,11 +14,10 @@
 #include "benchmark.h"
 #include "libft/includes/libft.h"
 #include "adaptive_sort.h"
+#include "small_sort.h"
 #include <unistd.h>
 #include <stdlib.h>
 
-int			selection_sort(t_identified_stack *stack_a,
-				t_identified_stack *stack_b);
 void		init_stacks(t_identified_stack *a, t_identified_stack *b);
 void		display_stack(t_identified_stack *id_stack);
 t_sort_mode	execute_sort(t_identified_stack *a, t_identified_stack *b,
